@@ -3,7 +3,8 @@ import { useDropzone } from "react-dropzone";
 
 function Dropzone() {
   const onDrop = useCallback((acceptedFiles) => {
-    // Do something with the files
+    const file = acceptedFiles[0];
+    console.log(file);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
@@ -11,9 +12,9 @@ function Dropzone() {
     <div {...getRootProps()}>
       <input {...getInputProps()} />
       {isDragActive ? (
-        <p>Drop the files here ...</p>
+        <p>Drop the image here ...</p>
       ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>Drag 'n' drop profile image, or click to select profile image</p>
       )}
     </div>
   );

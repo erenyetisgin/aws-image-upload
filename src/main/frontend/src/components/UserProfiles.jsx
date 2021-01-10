@@ -22,9 +22,13 @@ function UserProfiles() {
   return userProfiles.map((userProfile, index) => {
     return (
       <div key={index}>
+        {/* todo: profile image */}
+        <br />
+        <br />
         <DropZone />
         <h1>{userProfile.username}</h1>
         <p>{userProfile.userProfileId}</p>
+        <br />
       </div>
     );
   });
