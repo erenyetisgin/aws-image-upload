@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import DropZone from "./DropZone";
+import DropZone from "./Dropzone";
 
 function UserProfiles() {
   const [userProfiles, setUserProfiles] = useState([]);
@@ -12,7 +12,7 @@ function UserProfiles() {
         console.log(res);
         setUserProfiles(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
@@ -25,9 +25,9 @@ function UserProfiles() {
         {/* todo: profile image */}
         <br />
         <br />
-        <DropZone />
         <h1>{userProfile.username}</h1>
         <p>{userProfile.userProfileId}</p>
+        <DropZone {...userProfile} />
         <br />
       </div>
     );
