@@ -1,37 +1,23 @@
-import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import axios from "axios";
-
-const UserProfiles = () => {
-
-  const [UserProfiles, setUserProfiles] = useState([]);
-
-  const fetchUserProfiles = () => {
-    axios.get("http://localhost:8080/api/v1/user-profile").then(res => {
-      console.log(res);
-      setUserProfiles(res.data);
-    });
-  }
-
-  useEffect(() => {
-    fetchUserProfiles();
-  }, []);
-
-  return UserProfiles.map((UserProfile, index) => {
-    return (
-      <div key={index}>
-        <h1>{UserProfile.username}</h1>
-        <p>{UserProfile.userProfileId}</p>
-      </div>
-    )
-  })
-}
 
 function App() {
   return (
     <div className="App">
-      <UserProfiles/>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
