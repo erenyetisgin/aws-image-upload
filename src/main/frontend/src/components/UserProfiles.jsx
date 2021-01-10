@@ -9,14 +9,15 @@ function UserProfiles() {
       .get("http://localhost:8080/api/v1/user-profile")
       .then((res) => {
         console.log(res);
-        setUserProfiles(res.data);
+        if (JSON.stringify(userProfiles) !== JSON.stringify(res.data))
+          setUserProfiles(res.data);
       })
       .catch((err) => console.log(err));
   };
 
   useEffect(() => {
     fetchUserProfiles();
-  }, []);
+  }, [userProfiles]);
 
   return userProfiles.map((userProfile, index) => {
     return (
