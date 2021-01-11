@@ -11,7 +11,7 @@ function Dropzone({ userProfileId }) {
     const formData = new FormData();
     formData.append("file", file);
 
-    console.log("Profile Id:", userProfileId);
+    // console.log("Profile Id:", userProfileId);
 
     axios
       .post(
