@@ -23,5 +23,11 @@ public class UserProfileService {
     }
 
     public void uploadUserProfileImage(UUID userProfileId, MultipartFile file) {
+        if(!file.isEmpty() && file.getContentType().contains("image")) {
+            System.out.println("File is not empty and it's an image");
+        }
+        else {
+            System.out.println("File is empty or it's not an image");
+        }
     }
 }
